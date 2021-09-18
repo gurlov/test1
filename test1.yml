@@ -15,5 +15,6 @@
 
   handlers:
   - name: add line
-    systemd: 
-      daemon_reload: yes
+    file:
+      path: "/tmp/file.txt"
+      state: touch
