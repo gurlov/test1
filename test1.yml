@@ -15,7 +15,5 @@
 
   handlers:
   - name: add line
-    lineinfile:
-      dest: /tmp/file.txt
-      regexp: '^This'
-      line: This is line
+    systemd: 
+      daemon_reload: yes
