@@ -51,7 +51,7 @@
     notify:
       - systemd daemon reloaded
       - enabled and start mnt-SAMSON.automount
-      - wwqqeerr
+      - test123
  
   - name: Push  link
     copy: 
