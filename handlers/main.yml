@@ -1,0 +1,19 @@
+---
+#******************************************************************************
+# File: handlers/main.yml
+#******************************************************************************
+- name: systemd daemon reloaded
+  systemd: 
+    daemon_reload: yes
+
+- name: restart autofs
+  systemd: 
+    name: autofs 
+    state: restarted 
+    enabled: yes
+
+- name: enabled and start mnt-SAMSON.automount
+  systemd: 
+    name: mnt-SAMSON.automount 
+    state: started 
+    enabled: yes
