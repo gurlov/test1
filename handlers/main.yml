@@ -17,3 +17,9 @@
     name: mnt-SAMSON.automount 
     state: started 
     enabled: yes
+    
+- name: test123
+    copy: 
+      src: "Инструкции САМСОН.desktop"
+      dest: /tmp/
+      mode: 0744
