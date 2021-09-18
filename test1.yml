@@ -11,7 +11,7 @@
       dest: /etc/systemd/system/
       mode: 0644
     notify:
-      - systemd daemon reloaded
+      - systemd daemon reload
     
   - name: Push  mnt-SAMSON.automount
     copy: 
