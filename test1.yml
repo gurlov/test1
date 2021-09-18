@@ -6,10 +6,11 @@
 - name: Test handlers
   hosts: localhost
   tasks:
-  - name: create file
-    file:
-      path: "/tmp/file.txt"
-      state: touch
+  - name: Push  mnt-SAMSON.mount
+    copy: 
+      src: mnt-SAMSON.mount
+      dest: /etc/systemd/system/
+      mode: 0644
     notify:  add line
 
   handlers:
