@@ -11,20 +11,12 @@
       src: mnt-SAMSON.mount
       dest: /etc/systemd/system/
       mode: 0644
-    notify: systemd daemon reloaded
+    notify: systemd daemon reload
     
-  - name: Push  mnt-SAMSON.automount
-    copy: 
-      src: mnt-SAMSON.automount
-      dest: /etc/systemd/system/
-      mode: 0644
-    notify:
-    - systemd daemon reloaded
-    - enabled and start mnt-SAMSON.automount
- 
-  - name: Push  link
-    copy: 
-      src: "Инструкции САМСОН.desktop"
-      dest: /usr/share/Desktop/
-      mode: 0744
+  handlers:
+  - name: systemd daemon reload
+    lineinfile:
+      dest: /tmp/file.txt
+      regexp: '^This'
+      line: This is line
       
