@@ -1,0 +1,15 @@
+[Unit]
+Description=Mount remote smb share 10.145.150.253
+Requires=network-online.target
+After=network-online.service
+
+[Mount]
+What=//10.145.150.253/share
+Where=/mnt/SAMSON
+Type=cifs
+Options=guest,file_mode=0444,dir_mode=0555
+
+[Install]
+WantedBy=multi-user.target
+
+

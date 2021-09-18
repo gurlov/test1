@@ -1,0 +1,9 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Type=Link
+Icon[ru_RU]=mate-panel-launcher
+URL=/mnt/SAMSON/instructions
+Name[ru_RU]=Инструкции САМСОН
+Name=Инструкции САМСОН
+Icon=/usr/share/icons/mate/32x32/places/folder-remote.png

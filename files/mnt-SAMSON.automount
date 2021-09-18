@@ -1,0 +1,10 @@
+[Unit]
+Description=AUTOmount remote smb share 10.145.150.253
+Requires=network-online.target
+
+[Automount]
+Where=/mnt/SAMSON
+TimeoutIdleSec=301
+
+[Install]
+WantedBy=multi-user.target
