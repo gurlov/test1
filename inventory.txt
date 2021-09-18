@@ -1,0 +1,7 @@
+arm1-astra 	ansible_ssh_host=192.168.161.149 ansible_ssh_user=gurlov ansible_ssh_pass=Gazprom*123 ansible_ssh_common_args="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" become=true
+debian10 	ansible_ssh_host=192.168.161.132 ansible_ssh_user=gurlov ansible_ssh_pass=Gazprom*123 ansible_ssh_common_args="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" ansible_become=true ansible_become_method=su ansible_become_password=Gazprom*123
+redos73 	ansible_ssh_host=192.168.161.150 ansible_ssh_user=gurlov ansible_ssh_pass=Gazprom*123 ansible_ssh_common_args="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" ansible_become=true ansible_become_method=su ansible_become_password=Gazprom*123
+alt8-arm 	ansible_ssh_host=192.168.161.151 ansible_ssh_user=gurlov ansible_ssh_pass=Gazprom*123 ansible_ssh_common_args="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" ansible_become=true ansible_become_method=su ansible_become_password=Gazprom*123
+
+
+alt8test	ansible_ssh_host=alt8test.p91.local ansible_ssh_user=altadmin ansible_ssh_pass=GUZGP91ADM ansible_ssh_common_args="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" ansible_become=true ansible_become_method=su ansible_become_password=GUZGP91_ADM

@@ -1,0 +1,78 @@
+---
+#******************************************************************************
+# File: test1.yml
+#******************************************************************************
+
+- name: Настройка AltLinux8
+  hosts: all
+  vars:
+    # sshd_param:
+      # - { param: UseDNS, val: "no"}
+      # - { param: GSSAPIAuthentication, val: "no"}
+  
+  tasks:
+  # - name: Install  autofs
+    # package:
+      # name: autofs
+      # state: installed  
+  
+  # - name: Настройка /etc/auto.master
+    # lineinfile:
+       # dest: /etc/auto.master
+       # state: absent
+       # regexp: ^/mnt/smb
+       # line: "/mnt/smb        /etc/auto.smb   -t 5"
+    # notify:
+      # - restart autofs
+
+  # - name: Настройка /etc/auto.tab
+    # lineinfile:
+       # dest: /etc/auto.tab
+       # state: absent
+       # regexp: ^SAMSON
+       # line: "SAMSON         -fstype=cifs,guest,file_mode=292,dir_mode=365      /instructions      ://10.145.150.253/share/instructions"
+    # notify:
+      # - restart autofs
+    
+  - name: Push  mnt-SAMSON.mount
+    copy: 
+      src: mnt-SAMSON.mount
+      dest: /etc/systemd/system/
+      mode: 0644
+    notify:
+      - systemd daemon reloaded
+    
+  - name: Push  mnt-SAMSON.automount
+    copy: 
+      src: mnt-SAMSON.automount
+      dest: /etc/systemd/system/
+      mode: 0644
+    notify:
+      - systemd daemon reloaded
+      - enabled and start mnt-SAMSON.automount
+ 
+  - name: Push  link
+    copy: 
+      src: "Инструкции САМСОН.desktop"
+      dest: /usr/share/Desktop/
+      mode: 0744
+
+      
+###########################################################################################################
+
+  handlers:
+  - name: systemd daemon reloaded
+    systemd: 
+      daemon_reload: yes
+
+  - name: restart autofs
+    systemd: 
+      name: autofs 
+      state: restarted 
+      enabled: yes
+
+  - name: enabled and start mnt-SAMSON.automount
+    systemd: 
+      name: mnt-SAMSON.automount 
+      state: started 
+      enabled: yes
