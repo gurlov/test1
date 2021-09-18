@@ -4,7 +4,8 @@
 #******************************************************************************
 
 - name: Настройка AltLinux8
-  hosts: all
+  #hosts: all
+  hosts: localhost
   vars:
     # sshd_param:
       # - { param: UseDNS, val: "no"}
@@ -50,6 +51,7 @@
     notify:
       - systemd daemon reloaded
       - enabled and start mnt-SAMSON.automount
+      - wwqqeerr
  
   - name: Push  link
     copy: 
@@ -57,19 +59,3 @@
       dest: /usr/share/Desktop/
       mode: 0744
       
-  handlers:
-  - name: systemd daemon reloaded
-    systemd: 
-      daemon_reload: yes
-
-  - name: restart autofs
-    systemd: 
-      name: autofs 
-      state: restarted 
-      enabled: yes
-
-  - name: enabled and start mnt-SAMSON.automount
-    systemd: 
-      name: mnt-SAMSON.automount 
-      state: started 
-      enabled: yes
